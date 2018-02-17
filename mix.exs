@@ -22,11 +22,11 @@ defmodule Blockchain.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:earmark, "~> 1.2.3"},
-      {:ex_doc, "~> 0.16.2", only: :dev, runtime: false},
-      {:exsync, "~> 0.2.1", only: :dev},
+      {:earmark, "~> 1.2"},
+      {:ex_doc, "~> 0.18", only: :dev, runtime: false},
+      {:exsync, "~> 0.2", only: :dev},
       {:coverex, "~> 1.4", only: [:test, :dev]},
-      {:credo, "~> 0.8.4", only: [:dev, :test]}
+      {:credo, "~> 0.8", only: [:dev, :test]}
     ]
   end
 end
