@@ -14,10 +14,13 @@ defmodule Blockchain.MixProject do
 
   # Run "mix help compile.app" to learn about applications.
   def application do
-    [
-      extra_applications: [:logger],
-      mod: {Supervisor, []}
-    ]
+    case Mix.env() do
+      :test -> []
+      _ -> [
+        extra_applications: [:logger],
+        mod: {BlockchainSupervisor, []}
+      ]
+    end
   end
 
   # Run "mix help deps" to learn about dependencies.
@@ -25,7 +28,6 @@ defmodule Blockchain.MixProject do
     [
       {:earmark, "~> 1.2"},
       {:ex_doc, "~> 0.18", only: :dev, runtime: false},
-      {:exsync, "~> 0.2", only: :dev},
       {:coverex, "~> 1.4", only: [:test, :dev]},
       {:credo, "~> 0.8", only: [:dev, :test]}
     ]
