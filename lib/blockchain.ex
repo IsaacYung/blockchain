@@ -3,16 +3,7 @@ defmodule Blockchain do
   Documentation for Blockchain.
   """
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Blockchain.hello
-      :world
-
-  """
-  def hello do
-    :world
+  def start_link do
+    IO.puts "Inicializado"
   end
 end

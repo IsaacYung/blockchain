@@ -11,6 +11,12 @@ defmodule Blockchain.Block do
     - Previous Hash
     - Hash
   """
+
+  @typedoc """
+  Block Type
+  """
+  @type block :: __MODULE__
+
   defstruct index: 0,
             data: "Genesis block",
             timestamp: DateTime.utc_now,
@@ -20,6 +26,7 @@ defmodule Blockchain.Block do
   @doc """
   The function add_hash expect a Block with argument, return a Block with hash
   """
+  @spec add_hash(block) :: block
   def add_hash(block) do
     %{block | hash: generate_hash(block)}
   end
@@ -27,6 +34,7 @@ defmodule Blockchain.Block do
   @doc """
   Generated hash with Block datas
   """
+  @spec generate_hash(block) :: block
   defp generate_hash(block) do
     hash = :crypto.hash(:sha256, Enum.join [
       block.index,
