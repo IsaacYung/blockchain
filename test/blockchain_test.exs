@@ -1,5 +1,4 @@
 defmodule BlockchainTest do
-  require Logger
   use ExUnit.Case
   doctest Blockchain
 
@@ -17,7 +16,7 @@ defmodule BlockchainTest do
     assert genesis_block.data == "Genesis block"
     assert genesis_block.timestamp != nil
     assert genesis_block.previous_hash == nil
-    assert genesis_block.hash == "n7jW7VSaq9D73sIDlceaPMPofpJFUFB8Ws/tl6X+tIU="
+    assert genesis_block.hash == "c4Kwf2AOQXTuzym/0uCzgdHH4TxKJsdTTVM25h5lT8E="
   end
 
   test "verify block cosistence when add a new block", state do
@@ -29,7 +28,7 @@ defmodule BlockchainTest do
     assert new_block.index == 2
     assert new_block.data == "Genesis block"
     assert new_block.timestamp != nil
-    assert new_block.previous_hash == "n7jW7VSaq9D73sIDlceaPMPofpJFUFB8Ws/tl6X+tIU="
-    assert new_block.hash == "PnQ6Fu9PLpcLE+K1wxwpPh8Vu5zsgzU8tG6y3TBtV4g="
+    assert new_block.previous_hash == "c4Kwf2AOQXTuzym/0uCzgdHH4TxKJsdTTVM25h5lT8E="
+    assert new_block.hash == "LwVVESIxw4oq0YdmEaMgj3/9O74cv6o+xOPsIlyDuRs="
   end
 end

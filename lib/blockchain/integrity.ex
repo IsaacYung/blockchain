@@ -3,7 +3,7 @@ defmodule Blockchain.Integrity do
   alias __MODULE__
   alias Blockchain.Block
   alias Blockchain.Chain
-  require IEx
+
   @moduledoc """
   Integrity of Blockchain
   """
