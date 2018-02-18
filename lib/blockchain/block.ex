@@ -35,7 +35,7 @@ defmodule Blockchain.Block do
   Generated hash with Block datas
   """
   @spec generate_hash(block) :: block
-  defp generate_hash(block) do
+  def generate_hash(block) do
     hash = :crypto.hash(:sha256, Enum.join [
       block.index,
       block.data,

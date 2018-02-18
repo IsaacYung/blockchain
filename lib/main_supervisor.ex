@@ -1,4 +1,4 @@
-defmodule BlockchainSupervisor do
+defmodule MainSupervisor do
   def start(status, opts) do
     import Supervisor.Spec, warn: false
 

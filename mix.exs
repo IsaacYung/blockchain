@@ -18,7 +18,7 @@ defmodule Blockchain.MixProject do
       :test -> []
       _ -> [
         extra_applications: [:logger],
-        mod: {BlockchainSupervisor, []}
+        mod: {MainSupervisor, []}
       ]
     end
   end

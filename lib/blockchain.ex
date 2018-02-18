@@ -2,6 +2,7 @@ defmodule Blockchain do
   require Logger
   alias Blockchain.Block
   alias Blockchain.Chain
+  alias Blockchain.Integrity
   @moduledoc """
   Documentation for Blockchain.
   """
@@ -17,10 +18,10 @@ defmodule Blockchain do
     |> List.last
   end
 
-  def add_block(pid \\ Chain) do
+  def add_block(data, pid \\ Chain) do
     block = last_block()
 
-    %Block{index: block.index + 1, previous_hash: block.hash}
+    %Block{data: data, index: block.index + 1, previous_hash: block.hash}
     |> Block.add_hash
     |> Chain.enqueue(pid)
   end
@@ -28,11 +29,12 @@ defmodule Blockchain do
   def start_link do
     Logger.warn "Initialize Blockchain"
     genesis_block()
-    add_block
-    add_block()
-    add_block()
-    add_block()
-    IO.inspect last_block()
+    add_block("Genesis block2")
+    add_block("amount: 100")
+    add_block("amount: 200")
+    add_block("amount: 300")
+
     IO.inspect Chain.queue
+    IO.puts Integrity.valid_blockchain(Chain.queue)
   end
 end
